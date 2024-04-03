@@ -150,25 +150,42 @@ const loadThreads = () => {
 });    
 };
 const loadComments = (threadId) => {
-    fetch('http://localhost:5005'+'/comments', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token,
-        },
-    }).then((response) => {
-        response.json().then((data) =>{
-            if(data.error){
-                alert(data.error);
-            }else{
-            document.getElementById('comments').innerText='';
-            for(const comment of data){
-                const commentDom = document.createElement('div');
-                commentDom.innerHTML = comment;
-                document.getElementById('comments').appendChild(commentDom);    
-            }}
-        });
-});
+  const parsedThreadId = parseInt(threadId, 10);
+  if (isNaN(parsedThreadId)) {
+    // Handle the error if the threadId cannot be parsed to an integer.
+    alert('Invalid threadId');
+    return;
+  }
+
+  fetch(`http://localhost:5005/comments?threadId=${parsedThreadId}&start=0`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': token,
+    },
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    if (data.error) {
+      alert(data.error);
+    } else {
+      document.getElementById('comment_here').innerHTML = '';
+      for (const comment of data) {
+        const commentDom = document.createElement('div');
+        commentDom.innerHTML = `${comment.id}: ${comment.content}`;
+        document.getElementById('comment_here').appendChild(commentDom);
+      }
+    }
+  })
+  .catch((error) => {
+    console.error('Error fetching comments:', error);
+    alert('Error fetching comments. Please check the console for details.');
+  });
 };
 
 
@@ -359,7 +376,7 @@ document.getElementById('getBtn').addEventListener('click', () => {
               });
 
               document.getElementById('delete-comment').addEventListener('click', () => {
-                const commentId = document.getElementById('commentId').value;
+                const commentId = document.getElementById('deleteId').value;
                 fetch('http://localhost:5005/comment', {
                   method: 'DELETE',
                   headers: {
