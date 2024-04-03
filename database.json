@@ -1,0 +1,116 @@
+{
+  "users": {
+    "31236": {
+      "email": "user@lisa.in",
+      "name": "lisa",
+      "password": "123",
+      "image": null,
+      "admin": false
+    },
+    "35546": {
+      "email": "james@email.com",
+      "name": "James",
+      "password": "betty",
+      "image": null,
+      "admin": false,
+      "threadsWatching": []
+    },
+    "39686": {
+      "email": "augustine@email.com",
+      "name": "Augustine",
+      "password": "august",
+      "image": null,
+      "admin": false,
+      "threadsWatching": []
+    },
+    "61421": {
+      "email": "betty@email.com",
+      "name": "Betty",
+      "password": "cardigan",
+      "image": null,
+      "admin": true,
+      "threadsWatching": []
+    }
+  },
+  "threads": {
+    "198388": {
+      "id": 198388,
+      "creatorId": 31236,
+      "title": "aaa",
+      "isPublic": true,
+      "content": "aaa",
+      "lock": false,
+      "createdAt": "2024-04-02T16:13:04.594Z",
+      "likes": {},
+      "watchees": {}
+    },
+    "540801": {
+      "id": 540801,
+      "creatorId": 31236,
+      "title": "aaa",
+      "isPublic": true,
+      "content": "aaaa",
+      "lock": false,
+      "createdAt": "2024-04-02T16:54:02.334Z",
+      "likes": {},
+      "watchees": {}
+    },
+    "649634": {
+      "id": 649634,
+      "creatorId": 31236,
+      "title": "hello this is for test purpose",
+      "isPublic": true,
+      "content": "great news it is responsive too",
+      "lock": false,
+      "createdAt": "2024-03-29T10:17:36.788Z",
+      "likes": {},
+      "watchees": {}
+    },
+    "681885": {
+      "id": 681885,
+      "creatorId": 31236,
+      "title": "this is a test ",
+      "isPublic": true,
+      "content": "This is a test thread and  I hope thread is working fine",
+      "lock": false,
+      "createdAt": "2024-04-01T05:01:50.817Z",
+      "likes": {
+        "31236": true
+      },
+      "watchees": {}
+    },
+    "747830": {
+      "id": 747830,
+      "creatorId": 61421,
+      "title": "Why am I so awesome?",
+      "isPublic": false,
+      "content": "V confused why I'm so remarkable",
+      "lock": false,
+      "createdAt": "2024-02-06T21:20:15.369Z",
+      "likes": {},
+      "watchees": {}
+    },
+    "808403": {
+      "id": 808403,
+      "creatorId": 61421,
+      "title": "Where are my fries?",
+      "isPublic": true,
+      "content": "I like fries but I dont have any right now rip",
+      "lock": false,
+      "createdAt": "2024-02-06T21:20:15.363Z",
+      "likes": {},
+      "watchees": {}
+    }
+  },
+  "comments": {
+    "321911": {
+      "id": 321911,
+      "creatorId": 39686,
+      "threadId": 808403,
+      "parentCommentId": null,
+      "content": "testing testing",
+      "createdAt": "2024-02-06T21:20:15.376Z",
+      "likes": {}
+    }
+  }
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Qanda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- You can add your styles and scripts here -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/global.css" />
+</head>
+<body>
+    <!-- This is an example app structure, you can modify this as much as you choose --> 
+    <header id="head1">
+        <div class="head_logo">
+        <h1 >Qanda</h1>
+        </div>
+        <div class="nav">
+                <button class="nav-link btn1" id="btn1" href="#register_page"><b>Register</b></button>
+                <button class="nav-link btn2" id="btn2" href="#login_page"><b>LogIn</b></button>
+                <button class="nav-link btn2" id="btn3" style="display: none;"><b>LogOut</b></button>
+        </div>
+    </header>
+    <section role="main" class="center" id="first_page">
+        <!-- app goes here --> 
+        <div class="intro">
+            <div class="tex">
+            <h1>Qanda</h1>
+            <h3>Next gen class Q&A</h3>
+            <p>Ed Discussion helps scale class communication in<br> a beautiful and intuitive interface.</p>
+            <p>Questions reach and benefit the whole class.</p>
+            <p>Less email, more time saved.</p>
+        </div>
+        </div>
+        <div class="intro-img">
+            <img src="./assets/bg1.png" alt="">
+        </div> 
+    </section>
+    <section id="login_page">
+        <div class="container">
+            <div class="H1">
+                <h1>Qanda</h1>
+            </div>
+            <div id="errorPopup" style="display: none; align-items: center">
+                <div class="error-message">Invalid credentials. Please try again.</div>
+            </div>
+            <div class="login-form" id="loginForm" method="POST" action="/auth/login">
+                <div class="email-label" >Email</div>
+                <input type="text" class="email" name="email" id="emailInput2" required>
+                <div class="password-label">Password</div>
+                <input  type="password" class="password" name="password" id="passwordInput2" required>
+                <button id="login-go" class="continue-btn">Login</button>
+            </div>
+        </div>
+        
+    </section>
+    <section id="dashboard" class="dashboard" style="display:none">
+        
+         <div class="container2">
+            <aside class="sidebar">
+                <div >
+                    <h2>Threads</h2>
+                <button class="create-thread-btn " id="createThreadBtn" >Create Thread</button>
+                <div class="thread" id="threads">
+                    <h3>Threads</h3>
+                </div>
+            </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search threads" class="searchInput" id="searchInput">
+                    <button class="get_btn" id="getBtn">Get</button>
+                </div>
+                <!-- Add more threads here -->
+            </aside>
+            <div class="main-content" id="mainContent">
+                <div class="create-thread" id="createThread">
+                    <h2>Create New Thread</h2>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="titleInput" placeholder="Enter thread title">
+                    </div>
+                    <div class="form-group">
+                        <label for="public">Public</label>
+                        <input type="checkbox" id="publicInput">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Content</label>
+                        <textarea id="contentInput" rows="5" placeholder="Enter thread content"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button id="thread-go">Create</button>
+                    </div>
+                </div>
+                <div id="threadShow" style="display: none;">
+                    <div class="create-thread " >
+                        <div class="form-group">
+                            <label for="title">Title<h1 type="text" id="threadTitle" ></h1></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <h1 id="threadContent" id="threadContent"></h1>
+                        </div>
+                        <div class="form-group">
+                            <button  id="thread-update">Update</button>
+                        </div>
+                        <div class="form-group">
+                            <button  id="thread-delete">Delete</button>
+                        </div>
+                        <div class="form-group">
+                            <button id="like-button">Like</button>
+                    </div>
+                    <div class="form-group">
+                        <button id="watch-button">Watched</button>
+                </div>
+                        <hr>
+                        <div class="comments">
+                            <!-- Existing comments section -->
+                            <div class="comments" id="comments">
+                                <h2>Comments</h2>
+                                <div class="comment-container">
+                                    <div class="comment" id="comment_here">
+                                        <p id="commentshown"></p>
+                                        <div class="comment-actions">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Add more comments here -->
+                                <div class="new-comment-container">
+                                    <div class="new-comment">
+                                        <textarea rows="3" placeholder="Write a new comment..." id="commentInput"></textarea>
+                                        <textarea rows="1" placeholder="Parent ID" id="parentId"></textarea>
+                                        <button id="comment-go">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="update-thread" id="updateThread" style="display: none;">
+                            
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" id="titleInput2" placeholder="Enter thread title">
+                            </div>
+                            <div class="form-group">
+                                <label for="public">Public</label>
+                                <input type="checkbox" id="publicInput2">
+                            </div>
+                            <div class="form-group">
+                                <label for="content">Content</label>
+                                <textarea id="contentInput2" rows="5" placeholder="Enter thread content"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button id="update-go">Update</button>
+                                <button id="back">Back</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section id="register_page">
+        <div class="container">
+            <div class="H1">
+                <h1>Qanda</h1>
+            </div>
+            <div class="register-form" id="registerForm" >
+                <div class="name-label">Name</div>
+                <input type="name" name="name" class="name" id="nameInput" required>
+                <div class="email-label">Email</div>
+                <input  type="text" placeholder="Email" name="email" class="email" id="emailInput" required>
+                <div class="password-label">Password</div>
+                <input  class="password" id="passwordInput" type="password" required>
+                <div class="password-label" >Confirm Password</div>
+                <input type="password" class="password" id="confirmPasswordInput" required>
+                <button  id="register-go" class="continue-btn">Register</button>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="foot1">
+        <p>&copy; Qanda.com 2022</p>
+    </footer>
+    <script type="module" src="./main.js"></script>
+    
+
+    
+    
+</body>
+</html>
