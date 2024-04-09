@@ -3,11 +3,15 @@ const loginPage = document.getElementById('login_page');
 const firstpage = document.getElementById('first_page');
 
 
+const userProfileBtn = document.getElementById('user-profile-btn');
 const home_btn = document.getElementById('home_btn');
 const registerBtn = document.getElementById('btn1');
 const registerPage = document.getElementById('register_page');
 const dashboard = document.getElementById('dashboard');
 const logoutBtn = document.getElementById('btn3');
+const userProfile = document.getElementById('user-profile');
+const backBtn = document.getElementById('back_btn');
+
 
 
 // Adding click event listener to the login button
@@ -29,6 +33,31 @@ registerBtn.addEventListener('click', function() {
     loginBtn.style.display = 'inline';
     
 });
+
+userProfileBtn.addEventListener('click', function() {
+    dashboard.style.display = 'none';
+    firstpage.style.display = 'none';
+    loginPage.style.display = 'none';
+    registerPage.style.display = 'none';
+    userProfileBtn.style.display = 'none';
+    loginBtn.style.display = 'none';
+    userProfile.style.display = 'flex';
+    backBtn.style.display = 'inline';
+    
+});
+
+backBtn.addEventListener('click', function() {
+    dashboard.style.display = 'block';
+    firstpage.style.display = 'none';
+    loginPage.style.display = 'none';
+    registerPage.style.display = 'none';
+    userProfileBtn.style.display = 'inline';
+    loginBtn.style.display = 'none';
+    userProfile.style.display = 'none';
+    backBtn.style.display = 'none';
+});
+
+
 const hideAllPages = () => {
     firstpage.style.display = 'none';
     loginPage.style.display = 'none';
@@ -49,6 +78,7 @@ const hideAllPages = () => {
             loginBtn.style.display = 'inline';
             registerBtn.style.display = 'inline';
             logoutBtn.style.display = 'none';
+            userProfileBtn.style.display = 'none';
         });
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('register-go').addEventListener('click', (event) => {
@@ -87,6 +117,7 @@ const hideAllPages = () => {
                             registerPage.style.display = 'none';
                             loginBtn.style.display = 'none';
                             logoutBtn.style.display = 'inline';
+                            userProfileBtn.style.display = 'inline';
                         }
                     });
                 }).catch((error) => {
@@ -120,6 +151,10 @@ const hideAllPages = () => {
                 loginPage.style.display = 'none';
                 registerBtn.style.display = 'none';
                 logoutBtn.style.display = 'inline';
+                userProfileBtn.style.display = 'inline';
+                
+                console.log(localStorage);
+                
             }
         });
     });
@@ -421,6 +456,33 @@ document.getElementById('back').addEventListener('click', () => {
     document.getElementById('comments').style.display = 'block';
     document.getElementById('thread-update').style.display = 'inline';
 })
+
+document.getElementById('user-profile-btn').addEventListener('click', () => {
+  
+  fetch(`http://localhost:5005/user`, {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': token, // Make sure token is defined
+      }
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      return response.json();
+  })
+  .then(data => {
+      // Assuming data returned from the server contains user information
+      const profileNameElement = document.getElementById('profileName');
+      profileNameElement.textContent = data.name; // Adjust property name according to your data structure
+  })
+  .catch(error => {
+      console.error('Error fetching user:', error);
+      // Handle error appropriately, e.g., show error message to user
+  });
+});
+
 
 
 if(localStorage.getItem('token')){

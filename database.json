@@ -1,9 +1,30 @@
 {
   "users": {
+    "18960": {
+      "email": "he@gmail.com",
+      "name": "he",
+      "password": "123",
+      "image": null,
+      "admin": false
+    },
+    "31142": {
+      "email": "she@he.com",
+      "name": "shes",
+      "password": "123",
+      "image": null,
+      "admin": false
+    },
     "31236": {
       "email": "user@lisa.in",
       "name": "lisa",
       "password": "123",
+      "image": null,
+      "admin": false
+    },
+    "31699": {
+      "email": "abc@email.com",
+      "name": "akash",
+      "password": "456",
       "image": null,
       "admin": false
     },
